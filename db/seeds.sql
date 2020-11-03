@@ -1,10 +1,4 @@
-CREATE DATABASE burger_db;
-USE burger_db;
-
-CREATE TABLE burgers
-(
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR (200) NOT NULL,
-    devour BOOLEAN DEFAULT false,
-    PRIMARY KEY (id)
-);
+INSERT INTO burgers (name) VALUES ('Cheese Burger');
+INSERT INTO burgers (name) VALUES ('Veggie Burger');
+INSERT INTO burgers (name, devour) VALUES ('Bacon Burger', true);
+INSERT INTO burgers (name, devour) VALUES ('Western Burger', true);
