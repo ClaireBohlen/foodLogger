@@ -1,6 +1,7 @@
 const express = require("express");
 const bars = require("express-handlebars");
 const mysql = require("mysql");
+const path = require("path");
 
 const PORT = process.env.PORT || 8080; 
 
@@ -17,8 +18,9 @@ app.use(express.json());
 app.engine("handlebars", bars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+
 //Import routes from controller
-const routes = require("./controllers/burgers_controller.js/");
+const routes = require("./controllers/burgers_controller");
 
 app.use(routes);
 
