@@ -1,35 +1,35 @@
-const express = require("express");
+var express = require("express");
 
-const router = express.Router();
+var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
 // 
-const burger = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 //GET METHOD 
-router.get("/", function(req, resp){
+router.get("/", function(req, res){
     burger.all(function(data){
         var barsObj = {
             burgers: data
         };
         console.log(barsObj);
-        resp.render("index", barsObj);
+        res.render("index", barsObj);
     });
 });
 
 //POST METHOD
-router.put("/api/burgers", function(req, resp){
+router.put("/api/burgers", function(req, res){
     burger.create([
-        "burger-name"
+        "name", "devour"
     ], [
-        req.body.name
+        req.body.name, req.body.devour
     ],
     function(result){
-        resp.json({ id: result.insertID});
+        res.json({ id: result.insertID});
     });
 });
 
-router.put("/api/burgers/:id", function(req, resp) {
+router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);
@@ -39,14 +39,12 @@ router.put("/api/burgers/:id", function(req, resp) {
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
-        return resp.status(404).end();
+        return res.status(404).end();
       } else {
-        resp.status(200).end();
+        res.status(200).end();
       }
     });
-  });
-
-
+});
 
 module.exports = router;
 
