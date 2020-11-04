@@ -2,4 +2,35 @@
 
 <h2> Add a Burger</h2>
 
+<ul>
+    {{#each burgers}}
+        {{#unless devour}}
+            {{> burgers/burger-block eaten=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
 <h2> Devour a Burger</h2>
+<ul>
+    
+    {{#each burgers}}
+        {{#if devour}}
+            {{>burgers/burger-block eaten=false}}
+            {{!-- //check on this eaten --}}
+        {{#/if}}
+    {{/each}}
+        
+</ul>
+
+
+
+
+<h2> Add a Burger!!!</h2>
+<form class="create-burger-form">
+    <div>
+        <label> What type of Burger?</label>
+        <input type="text" id="burger-input" name="burger-name">
+    </div>
+    <button type="submit">Add the Burger</button>
+
+</form>
