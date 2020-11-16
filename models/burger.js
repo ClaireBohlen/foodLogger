@@ -1,5 +1,5 @@
 //Import ORM
-const orm = require("../config/orm.js");
+var orm = require("../config/orm.js");
 
 var burger = {
     all: function(cb){

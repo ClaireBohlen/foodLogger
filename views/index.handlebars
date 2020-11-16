@@ -5,7 +5,7 @@
 <ul>
     {{#each burgers}}
         {{#unless devour}}
-            {{> burgers/burger-block eaten=true}}
+            {{> burgers/burger-block devour=true}}
         {{/unless}}
     {{/each}}
 </ul>
@@ -15,7 +15,7 @@
     
     {{#each burgers}}
         {{#if devour}}
-            {{> burgers/burger-block eaten=false}}
+            {{> burgers/burger-block devour=false}}
             {{!-- //check on this eaten --}}
         {{/if}}
     {{/each}}
@@ -36,6 +36,7 @@
     <input type="radio" name="devour" value="1" checked> Eaten!<br>
     <input type="radio" name="devour" value="0">Ready To Eat 
   </div>
+  
 
     
 

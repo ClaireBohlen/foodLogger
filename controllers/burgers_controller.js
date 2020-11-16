@@ -1,6 +1,7 @@
-var express = require("express");
 
+var express = require("express");
 var router = express.Router();
+var burger = require("../models/burger.js");
 
 // Import the model (cat.js) to use its database functions.
 // 
@@ -18,7 +19,7 @@ router.get("/", function(req, res){
 });
 
 //POST METHOD
-router.put("/api/burgers", function(req, res){
+router.post("/api/burgers", function(req, res){
     burger.create([
         "name", "devour"
     ], [
@@ -45,6 +46,8 @@ router.put("/api/burgers/:id", function(req, res) {
       }
     });
 });
+
+
 
 module.exports = router;
 
