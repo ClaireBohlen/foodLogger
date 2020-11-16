@@ -7,11 +7,11 @@ $(function() {
       var newDevour = $(this).data("newDevour");
   
       var newDevourState = {
-        devour: newDevour
+        devour: 1
       };
   
       // Send the PUT request.
-      $.ajax("/burgers/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: newDevourState
       }).then(
@@ -33,7 +33,7 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/burgers", {
+      $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
       }).then(
